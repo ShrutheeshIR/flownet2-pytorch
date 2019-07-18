@@ -22,4 +22,4 @@ RUN /install.sh
 
 # Dependencies to process flow files
 RUN apt-get install -y ffmpeg
-RUN git clone https://github.com/georgegach/flow2image.git /flow2image
+RUN pip install flowiz

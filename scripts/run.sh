@@ -29,7 +29,8 @@ datasets/sintel/output/inference/run.epoch-0-flow-field/*.flo \
 
 echo_status 'Generating custom frames from video'
 
-ffmpeg -i datasets/dancelogue/sample-video.mp4 datasets/dancelogue/frames/output_%02d.png
+ffmpeg -i datasets/dancelogue/sample-video.mp4 \
+datasets/dancelogue/frames/output_%02d.png
 
 # Running Inference on the custom video frames
 
@@ -43,8 +44,10 @@ python main.py --inference --model FlowNet2 --save_flow \
 
 # Generating the color coding images ffor optical flow files for video
 
-echo_status 'Generating the color coding images ffor optical flow files for video'
+echo_status 'Generating the color coding images for optical flow files for video'
 
-python /flow2image/f2i.py \
+python -m flowiz \
 datasets/dancelogue/output/inference/run.epoch-0-flow-field/*.flo \
--o datasets/dancelogue/output/color_coding -v -r 30
+-o datasets/dancelogue/output/color_coding \
+-v datasets/dancelogue/output/color_coding/video
+-r 30
