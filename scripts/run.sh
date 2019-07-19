@@ -21,9 +21,11 @@ python main.py --inference --model FlowNet2 --save_flow \
 
 echo_status 'Converting sintel data optical flow files to color coded image files'
 
-python /flow2image/f2i.py \
+python -m flowiz \
 datasets/sintel/output/inference/run.epoch-0-flow-field/*.flo \
--o datasets/sintel/output/color_coding
+-o datasets/sintel/output/utput/color_coding \
+-v datasets/sintel/output/output/color_coding/video
+-r 30
 
 # Generating custom frames from video
 
