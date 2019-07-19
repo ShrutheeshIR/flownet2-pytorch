@@ -24,7 +24,7 @@ echo_status 'Converting sintel data optical flow files to color coded image file
 python -m flowiz \
 datasets/sintel/output/inference/run.epoch-0-flow-field/*.flo \
 -o datasets/sintel/output/utput/color_coding \
--v datasets/sintel/output/output/color_coding/video
+-v datasets/sintel/output/output/color_coding/video \
 -r 30
 
 # Generating custom frames from video
@@ -51,5 +51,5 @@ echo_status 'Generating the color coding images for optical flow files for video
 python -m flowiz \
 datasets/dancelogue/output/inference/run.epoch-0-flow-field/*.flo \
 -o datasets/dancelogue/output/color_coding \
--v datasets/dancelogue/output/color_coding/video
+-v datasets/dancelogue/output/color_coding/video \
 -r 30
